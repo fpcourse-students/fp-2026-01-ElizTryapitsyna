@@ -102,7 +102,7 @@ chain t1_4 from (K I) to K' =
 task 1.5 (дизъюнкция)
 -- Задайте терм or p q, вычисляющий дизъюнкцию двух логических значений.
 
-or := ...
+or := \a b. if a true b
 expect or true true = true
 expect or true false = true
 expect or false true = true
