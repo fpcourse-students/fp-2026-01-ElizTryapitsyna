@@ -112,7 +112,7 @@ expect or false false = false
 task 1.6 (проверка на ноль)
 -- Задайте терм isZero: true на 0 и false на остальных числах Чёрча.
 
-isZero := ...
+isZero := \x. x (\y. false) true
 expect isZero 0 = true
 expect isZero 1 = false
 expect isZero 4 = false
@@ -123,8 +123,8 @@ task 1.7 (умножение и степень)
 -- В интерпретаторе pow 5 0 может выглядеть как \z. z: это ⌜1⌝ с точностью до
 -- eta эквивалентности, и проверка такой ответ примет.
 
-mult := ...
-pow := ...
+mult := \x y f. x (y f)
+pow := \ b e. e b
 expect mult 2 3 = 6
 expect mult 0 5 = 0
 expect mult 3 1 = 3
