@@ -78,10 +78,10 @@ task 1.3 (предскажите нормальную форму)
 -- сверяясь с интерпретатором (`:follow терм` покажет шаги). Имена связанных
 -- переменных не важны: проверка сравнивает термы с точностью до α.
 
-expect K I S = ...
-expect (\x y. x) y = ...
-expect and (not false) true = ...
-expect natElim 2 suc 1 = ...
+expect K I S = I
+expect (\x y. x) y = \z. y
+expect and (not false) true = true
+expect natElim 2 suc 1 = suc 1 suc 1
 
 
 task 1.4 (β-эквивалентность комбинаторов)
@@ -91,7 +91,12 @@ task 1.4 (β-эквивалентность комбинаторов)
 
 chain t1_4 from (K I) to K' =
   K I
-  ~K~> ...
+  ~K~> (\x y. x) I 
+  ~b~> \y. I 
+  ~I~> \y x. x
+  =a= \a b. b 
+  =a= \x y. y
+  ~K'~> K'
 
 
 task 1.5 (дизъюнкция)
